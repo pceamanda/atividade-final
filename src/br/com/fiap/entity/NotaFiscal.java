@@ -2,8 +2,8 @@ package br.com.fiap.entity;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
-import java.util.HashSet;
-import java.util.Set;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by logonrm on 05/12/2017.
@@ -28,7 +28,7 @@ public class NotaFiscal {
     @JoinTable(name="PEDIDO",
             joinColumns = {@JoinColumn(name="ID_NF", nullable=false, updatable=false)},
             inverseJoinColumns = {@JoinColumn(name="ID_PRODUTO", nullable=false, updatable=false)})
-    private Set<Produto> produtos = new HashSet<>();
+    private List<Produto> produtos = new ArrayList<>();
 
     @Column(name = "VALOR_TOTAL")
     private Double total;
@@ -57,11 +57,11 @@ public class NotaFiscal {
         this.cliente = cliente;
     }
 
-    public Set<Produto> getProdutos() {
+    public List<Produto> getProdutos() {
         return produtos;
     }
 
-    public void setProdutos(Set<Produto> produtos) {
+    public void setProdutos(List<Produto> produtos) {
         this.produtos = produtos;
     }
 
